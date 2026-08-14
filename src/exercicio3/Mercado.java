@@ -1,5 +1,6 @@
 package exercicio3;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class Mercado {
     //Fubá de milho
     //Molho ou extrato de tomate
     //Sal refinado
-    List<Item> itens;
+    List<Item> itens = new ArrayList<>();
 
     public void definirItens(){
         itens.add(new Item("Arroz", 1500));
@@ -36,16 +37,25 @@ public class Mercado {
         definirItens();
         Scanner sn = new Scanner(System.in);
         itens.forEach(e -> {
-            System.out.printf("Digite o valor para ", e.nome);
+            System.out.printf("Digite o valor para %s: ", e.nome);
             e.valor = sn.nextDouble();
         });
+    }
+
+    //somar o preço de todos os itens
+    public double calcularTotal(){
+        double total = 0;
+        for(Item e : itens){
+            total += e.valor;
+        }
+        return total;
     }
 
     //verificar se o valor total é maior que 100
     //caso sim => aplique o desconto
     //caso não => aplique o valor original
-    public boolean verificarValor(){
-        return true;
+    public boolean verificarValor(double total){
+        return total > 100;
     }
 
     //mostrar listagem do caixa
@@ -54,7 +64,22 @@ public class Mercado {
     //preço parcial
     //valor final a ser pago
     public void mostrarResultado(){
+        double total = calcularTotal();
+        double desconto = 0;
+        if(verificarValor(total)){
+            desconto = total * 0.10;
+        }
+        double valorFinal = total - desconto;
 
+        System.out.println("------------------- CAIXA -------------------");
+        System.out.printf("%-32s %-8s %-10s%n", "Item", "Qtd(g)", "Preço");
+        for(Item e : itens){
+            System.out.printf("%-32s %-8.0f R$ %.2f%n", e.nome, e.peso, e.valor);
+        }
+        System.out.println("---------------------------------------------");
+        System.out.printf("Total.............: R$ %.2f%n", total);
+        System.out.printf("Desconto (10%%)....: R$ %.2f%n", desconto);
+        System.out.printf("Valor a pagar.....: R$ %.2f%n", valorFinal);
     }
 }
 
@@ -66,6 +91,6 @@ class Item{
     Item(String nome, double peso, double... valor) {
         this.nome = nome;
         this.peso = peso;
-        this.valor = valor != null ? valor[0] : 0;
+        this.valor = valor.length > 0 ? valor[0] : 0;
     }
 }
