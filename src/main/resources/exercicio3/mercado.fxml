@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exercicio3.MercadoController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Label text="Compra com desconto">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label text="Informe o preço de cada item da cesta básica. Compras acima de R$ 100,00 recebem 10% de desconto." wrapText="true" />
+      <GridPane hgap="10.0" vgap="6.0">
+         <children>
+            <Label text="Arroz" GridPane.rowIndex="0" />
+            <TextField fx:id="txtArroz" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Feijão" GridPane.rowIndex="1" />
+            <TextField fx:id="txtFeijao" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Oléo de soja" GridPane.rowIndex="2" />
+            <TextField fx:id="txtOleo" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Açúcar" GridPane.rowIndex="3" />
+            <TextField fx:id="txtAcucar" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Café torrado e moído" GridPane.rowIndex="4" />
+            <TextField fx:id="txtCafe" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Macarrão" GridPane.rowIndex="5" />
+            <TextField fx:id="txtMacarrao" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Farinha de mandioca ou trigo" GridPane.rowIndex="6" />
+            <TextField fx:id="txtFarinha" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Fubá de milho" GridPane.rowIndex="7" />
+            <TextField fx:id="txtFuba" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Molho ou extrato de tomate" GridPane.rowIndex="8" />
+            <TextField fx:id="txtMolho" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Sal refinado" GridPane.rowIndex="9" />
+            <TextField fx:id="txtSal" maxWidth="300.0" promptText="R$ 0,00" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         </children>
+      </GridPane>
+      <Button defaultButton="true" onAction="#calcular" text="Calcular" />
+      <TextArea fx:id="resultado" editable="false" prefRowCount="16" style="-fx-font-family: 'Consolas', monospace;" />
+   </children>
+</VBox>

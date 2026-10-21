@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="raiz" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.PrincipalController">
+   <left>
+      <ListView fx:id="menu" prefWidth="260.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1 - Verificação de Múltiplo" />
+               <String fx:value="2 - Sistema de Login Simplificado" />
+               <String fx:value="3 - Compra com desconto" />
+               <String fx:value="4 - Temperatura" />
+               <String fx:value="5 - Os trinta e cinco camelos" />
+               <String fx:value="6 - Calculadora de viagem" />
+               <String fx:value="7 - Aluguel de carro" />
+            </FXCollections>
+         </items>
+      </ListView>
+   </left>
+   <center>
+      <VBox spacing="10.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label text="Seja bem vindo ao programa!">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label text="Escolha uma opção do menu ao lado." wrapText="true" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -2,7 +2,6 @@ package exercicio3;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Mercado {
     //Ler
@@ -18,6 +17,10 @@ public class Mercado {
     //Sal refinado
     List<Item> itens = new ArrayList<>();
 
+    public Mercado(){
+        definirItens();
+    }
+
     public void definirItens(){
         itens.add(new Item("Arroz", 1500));
         itens.add(new Item("Feijão", 1000));
@@ -31,15 +34,13 @@ public class Mercado {
         itens.add(new Item("Sal refinado", 1000));
     }
 
-    //ler o valor da compra
+    public List<String> nomesDosItens(){
+        return itens.stream().map(e -> e.nome).toList();
+    }
 
-    public void definirPreço(){
-        definirItens();
-        Scanner sn = new Scanner(System.in);
-        itens.forEach(e -> {
-            System.out.printf("Digite o valor para %s: ", e.nome);
-            e.valor = sn.nextDouble();
-        });
+    //ler o valor da compra
+    public void definirPreço(int indice, double valor){
+        itens.get(indice).valor = valor;
     }
 
     //somar o preço de todos os itens
@@ -63,7 +64,7 @@ public class Mercado {
     //quantidade
     //preço parcial
     //valor final a ser pago
-    public void mostrarResultado(){
+    public String mostrarResultado(){
         double total = calcularTotal();
         double desconto = 0;
         if(verificarValor(total)){
@@ -71,15 +72,17 @@ public class Mercado {
         }
         double valorFinal = total - desconto;
 
-        System.out.println("------------------- CAIXA -------------------");
-        System.out.printf("%-32s %-8s %-10s%n", "Item", "Qtd(g)", "Preço");
+        StringBuilder sb = new StringBuilder();
+        sb.append("------------------- CAIXA -------------------\n");
+        sb.append(String.format("%-32s %-8s %-10s%n", "Item", "Qtd(g)", "Preço"));
         for(Item e : itens){
-            System.out.printf("%-32s %-8.0f R$ %.2f%n", e.nome, e.peso, e.valor);
+            sb.append(String.format("%-32s %-8.0f R$ %.2f%n", e.nome, e.peso, e.valor));
         }
-        System.out.println("---------------------------------------------");
-        System.out.printf("Total.............: R$ %.2f%n", total);
-        System.out.printf("Desconto (10%%)....: R$ %.2f%n", desconto);
-        System.out.printf("Valor a pagar.....: R$ %.2f%n", valorFinal);
+        sb.append("---------------------------------------------\n");
+        sb.append(String.format("Total.............: R$ %.2f%n", total));
+        sb.append(String.format("Desconto (10%%)....: R$ %.2f%n", desconto));
+        sb.append(String.format("Valor a pagar.....: R$ %.2f%n", valorFinal));
+        return sb.toString();
     }
 }
 

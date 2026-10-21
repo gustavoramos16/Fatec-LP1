@@ -30,3 +30,7 @@ bin/
 .DS_Store
 *.iml
 *.xml
+!pom.xml
+
+### Maven ###
+target/

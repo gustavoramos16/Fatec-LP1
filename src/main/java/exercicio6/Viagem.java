@@ -1,18 +1,13 @@
 package exercicio6;
 
-import java.util.Scanner;
-
 public class Viagem {
     //Entrada: distância da viagem e preço do combustível
     double distancia, precoCombustivel;
     final double CONSUMO = 12; //km por litro
-    Scanner sn = new Scanner(System.in);
 
-    public void receberDados(){
-        System.out.print("Distância da viagem (km): ");
-        distancia = sn.nextDouble();
-        System.out.print("Preço do combustível (R$/L): ");
-        precoCombustivel = sn.nextDouble();
+    public Viagem(double distancia, double precoCombustivel){
+        this.distancia = distancia;
+        this.precoCombustivel = precoCombustivel;
     }
 
     //Processamento: calcular o gasto (12 km/L)
@@ -27,13 +22,15 @@ public class Viagem {
     }
 
     //Saída: valor gasto na viagem
-    public void mostrarResultado(){
+    public String mostrarResultado(){
         double custo = calcularGasto();
-        System.out.println("-------------------------------");
-        System.out.printf("Litros necessários: %.2f L%n", distancia / CONSUMO);
+        StringBuilder sb = new StringBuilder();
+        sb.append("-------------------------------\n");
+        sb.append(String.format("Litros necessários: %.2f L%n", distancia / CONSUMO));
         if(distancia > 500){
-            System.out.println("Desconto de 5% aplicado (viagem acima de 500 km)");
+            sb.append("Desconto de 5% aplicado (viagem acima de 500 km)\n");
         }
-        System.out.printf("Gasto total: R$ %.2f%n", custo);
+        sb.append(String.format("Gasto total: R$ %.2f%n", custo));
+        return sb.toString();
     }
 }
