@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,10 +19,35 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label text="Informe o nome da árvore, a quantidade de folhas e o tipo de solo." wrapText="true" />
-      <TextField fx:id="txtArvore" maxWidth="300.0" promptText="Nome da árvore" />
-      <TextField fx:id="txtFolhas" maxWidth="300.0" promptText="Quantidade de folhas" />
-      <TextField fx:id="txtSolo" maxWidth="300.0" promptText="Tipo de solo" />
+      <Label text="Informe os dados da árvore, das folhas e do solo." wrapText="true" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Árvore" GridPane.rowIndex="0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtArvore" prefWidth="180.0" promptText="Nome" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="txtAltura" prefWidth="180.0" promptText="Altura (m)" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtIdade" prefWidth="180.0" promptText="Idade (anos)" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Label text="Folhas" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFolhas" prefWidth="180.0" promptText="Quantidade" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCorFolha" prefWidth="180.0" promptText="Cor" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtFormatoFolha" prefWidth="180.0" promptText="Formato" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label text="Solo" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSolo" prefWidth="180.0" promptText="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPh" prefWidth="180.0" promptText="pH (0 a 14)" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtUmidade" prefWidth="180.0" promptText="Umidade (%)" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
       <Button defaultButton="true" onAction="#calcular" text="Cadastrar" />
       <TextArea fx:id="resultado" editable="false" prefRowCount="10" />
    </children>

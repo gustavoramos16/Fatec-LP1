@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,11 +19,34 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label text="Cadastre a vendedora, o produto e atribua a vendedora para a cliente." wrapText="true" />
-      <TextField fx:id="txtVendedora" maxWidth="300.0" promptText="Nome da vendedora" />
-      <TextField fx:id="txtProduto" maxWidth="300.0" promptText="Nome do produto" />
-      <TextField fx:id="txtPreco" maxWidth="300.0" promptText="Preço do produto (R$)" />
-      <TextField fx:id="txtCliente" maxWidth="300.0" promptText="Nome da cliente" />
+      <Label text="Cadastre a vendedora, o produto e a cliente. A cliente é atribuída para a vendedora e a comissão é calculada sobre o preço do produto." wrapText="true" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Vendedora" GridPane.rowIndex="0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtVendedora" prefWidth="180.0" promptText="Nome" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMatricula" prefWidth="180.0" promptText="Matrícula" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtComissao" prefWidth="180.0" promptText="Comissão (%)" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Label text="Produto" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtProduto" prefWidth="180.0" promptText="Nome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTamanho" prefWidth="180.0" promptText="Tamanho (P, M, G...)" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPreco" prefWidth="180.0" promptText="Preço (R$)" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label text="Cliente" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCliente" prefWidth="180.0" promptText="Nome" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCpf" prefWidth="180.0" promptText="CPF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
       <Button defaultButton="true" onAction="#calcular" text="Atribuir" />
       <TextArea fx:id="resultado" editable="false" prefRowCount="10" />
    </children>

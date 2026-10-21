@@ -3,57 +3,102 @@ package exercicio10;
 import java.util.Objects;
 
 public class Mascaras {
-    String boca;
+    Boca boca = new Boca();
     Olho olho = new Olho();
-    String nariz;
-
-    public void definirConjuntoMascara(String boca, String olho, String tipoOlho, String nariz) {
-        this.boca = boca;
-        this.olho.olho = olho;
-        this.olho.tipoOlho = tipoOlho;
-        this.nariz = nariz;
-    }
+    Nariz nariz = new Nariz();
 
     public boolean estaDefinida(){
-        return boca != null;
+        return boca.caracteristica != null;
     }
 
-    public String buscarTipoDeOlhoPorMascara(String tipo) {
-        if(Objects.equals(olho.tipoOlho, tipo)){
-            return "Encontrado olho " + olho.olho;
-        }else{
-            return "Não encontrado nenhum olho";
-        }
-    }
-
-    //Campos em branco mantêm o valor atual
-    public void editarConjuntoMascara(String boca, String olho, String nariz){
-        if(!boca.isEmpty()){
-            this.boca = boca;
-        }
-
-        if(!olho.isEmpty()){
-            this.olho.olho = olho;
-        }
-
-        if(!nariz.isEmpty()){
-            this.nariz = nariz;
-        }
+    public void limparMascara(){
+        boca = new Boca();
+        olho = new Olho();
+        nariz = new Nariz();
     }
 
     public String mostrarResultado(){
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Boca: %s%n", boca));
-        sb.append(String.format("Olho: %s (tipo: %s)%n", olho.olho, olho.tipoOlho));
-        sb.append(String.format("Nariz: %s%n", nariz));
+        sb.append(boca.mostrarDados());
+        sb.append(olho.mostrarDados());
+        sb.append(nariz.mostrarDados());
         return sb.toString();
+    }
+}
+
+class Boca{
+    String caracteristica;
+    String cor;
+    String tamanho;
+
+    public void definirBoca(String caracteristica, String cor, String tamanho){
+        this.caracteristica = caracteristica;
+        this.cor = cor;
+        this.tamanho = tamanho;
+    }
+
+    //Campo em branco mantém o valor atual
+    public void editarBoca(String caracteristica){
+        if(!caracteristica.isEmpty()){
+            this.caracteristica = caracteristica;
+        }
+    }
+
+    public String mostrarDados(){
+        return String.format("Boca: %s, cor %s, tamanho %s%n", caracteristica, cor, tamanho);
     }
 }
 
 class Olho{
     String olho;
     String tipoOlho;
-    Olho(){
+    String cor;
 
+    public void definirOlho(String olho, String tipoOlho, String cor){
+        this.olho = olho;
+        this.tipoOlho = tipoOlho;
+        this.cor = cor;
+    }
+
+    public String buscarTipoDeOlhoPorMascara(String tipo){
+        if(Objects.equals(tipoOlho, tipo)){
+            return "Encontrado olho " + olho;
+        }else{
+            return "Não encontrado nenhum olho";
+        }
+    }
+
+    //Campo em branco mantém o valor atual
+    public void editarOlho(String olho){
+        if(!olho.isEmpty()){
+            this.olho = olho;
+        }
+    }
+
+    public String mostrarDados(){
+        return String.format("Olho: %s (tipo: %s), cor %s%n", olho, tipoOlho, cor);
+    }
+}
+
+class Nariz{
+    String caracteristica;
+    String formato;
+    String tamanho;
+
+    public void definirNariz(String caracteristica, String formato, String tamanho){
+        this.caracteristica = caracteristica;
+        this.formato = formato;
+        this.tamanho = tamanho;
+    }
+
+    //Campo em branco mantém o valor atual
+    public void editarNariz(String caracteristica){
+        if(!caracteristica.isEmpty()){
+            this.caracteristica = caracteristica;
+        }
+    }
+
+    public String mostrarDados(){
+        return String.format("Nariz: %s, formato %s, tamanho %s%n", caracteristica, formato, tamanho);
     }
 }

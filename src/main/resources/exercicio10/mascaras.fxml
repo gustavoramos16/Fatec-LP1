@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -26,11 +27,40 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBoca" maxWidth="300.0" promptText="Característica da boca" />
-      <TextField fx:id="txtOlho" maxWidth="300.0" promptText="Característica do olho" />
-      <TextField fx:id="txtTipoOlho" maxWidth="300.0" promptText="Tipo do olho" />
-      <TextField fx:id="txtNariz" maxWidth="300.0" promptText="Característica do nariz" />
-      <Button onAction="#definir" text="Definir" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Boca" GridPane.rowIndex="0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBoca" prefWidth="180.0" promptText="Característica" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField fx:id="txtCorBoca" prefWidth="180.0" promptText="Cor" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtTamanhoBoca" prefWidth="180.0" promptText="Tamanho" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Label text="Olho" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtOlho" prefWidth="180.0" promptText="Característica" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTipoOlho" prefWidth="180.0" promptText="Tipo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCorOlho" prefWidth="180.0" promptText="Cor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label text="Nariz" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNariz" prefWidth="180.0" promptText="Característica" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtFormatoNariz" prefWidth="180.0" promptText="Formato" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTamanhoNariz" prefWidth="180.0" promptText="Tamanho" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <HBox spacing="10.0">
+         <children>
+            <Button onAction="#definir" text="Definir" />
+            <Button onAction="#limpar" text="Limpar" />
+         </children>
+      </HBox>
       <Separator />
       <Label text="Buscar tipo de olho">
          <font>
