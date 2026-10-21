@@ -19,7 +19,10 @@ public class PrincipalController {
             "/exercicio4/temperatura.fxml",
             "/exercicio5/camelos.fxml",
             "/exercicio6/viagem.fxml",
-            "/exercicio7/aluguel.fxml"
+            "/exercicio7/aluguel.fxml",
+            "/exercicio8/loja.fxml",
+            "/exercicio9/meioambiente.fxml",
+            "/exercicio10/mascaras.fxml"
     };
 
     @FXML private BorderPane raiz;

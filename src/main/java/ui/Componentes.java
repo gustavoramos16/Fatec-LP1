@@ -17,6 +17,14 @@ public final class Componentes {
         }
     }
 
+    public static String lerTexto(TextField campo, String nome){
+        String texto = campo.getText().trim();
+        if(texto.isEmpty()){
+            throw new IllegalArgumentException("preencha o campo \"" + nome + "\"");
+        }
+        return texto;
+    }
+
     public static int lerInt(TextField campo, String nome){
         try {
             return Integer.parseInt(campo.getText().trim());

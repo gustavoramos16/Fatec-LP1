@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exercicio8.LojaController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Label text="Loja de roupa">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label text="Cadastre a vendedora, o produto e atribua a vendedora para a cliente." wrapText="true" />
+      <TextField fx:id="txtVendedora" maxWidth="300.0" promptText="Nome da vendedora" />
+      <TextField fx:id="txtProduto" maxWidth="300.0" promptText="Nome do produto" />
+      <TextField fx:id="txtPreco" maxWidth="300.0" promptText="Preço do produto (R$)" />
+      <TextField fx:id="txtCliente" maxWidth="300.0" promptText="Nome da cliente" />
+      <Button defaultButton="true" onAction="#calcular" text="Atribuir" />
+      <TextArea fx:id="resultado" editable="false" prefRowCount="10" />
+   </children>
+</VBox>

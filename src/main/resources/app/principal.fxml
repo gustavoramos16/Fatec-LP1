@@ -21,6 +21,9 @@
                <String fx:value="5 - Os trinta e cinco camelos" />
                <String fx:value="6 - Calculadora de viagem" />
                <String fx:value="7 - Aluguel de carro" />
+               <String fx:value="8 - Loja de roupa" />
+               <String fx:value="9 - Meio ambiente" />
+               <String fx:value="10 - Máscaras" />
             </FXCollections>
          </items>
       </ListView>

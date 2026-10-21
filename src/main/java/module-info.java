@@ -12,4 +12,7 @@ module fatec.lp1 {
     opens exercicio5 to javafx.fxml;
     opens exercicio6 to javafx.fxml;
     opens exercicio7 to javafx.fxml;
+    opens exercicio8 to javafx.fxml;
+    opens exercicio9 to javafx.fxml;
+    opens exercicio10 to javafx.fxml;
 }
